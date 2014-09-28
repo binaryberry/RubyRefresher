@@ -40,3 +40,21 @@ end
 def array_sort_by_last_letter_of_word array
 	array.sort_by { |word| word.inspect[-2]}
 end
+
+def get_first_half_of_string string
+	string.length.odd? ? half = (string.length/2)+1 : half =(string.length/2) 
+	return string[0...half]
+end
+
+
+def make_numbers_negative number
+	number < 0 ? number : -number	
+end
+
+def separate_array_into_even_and_odd_numbers array
+	even = []
+	odd = []
+	result = [even, odd]
+	array.each { |number| number.odd? ? odd << number : even << number}
+	result
+end
