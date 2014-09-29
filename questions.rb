@@ -6,10 +6,7 @@ end
 
 def select_elements_starting_with_vowel array
 	array.select do |element| 
-	element.start_with?("a") ||
-	element.start_with?("e") ||
-	element.start_with?("i") ||
-	element.start_with?("o")
+	element.start_with?("a","e","i","o")
 	end
 end
 
@@ -18,7 +15,7 @@ def remove_nils_from_array array
 end
 
 def remove_nils_and_false_from_array array
-	array.delete_if {|element| element == nil || element == false}
+	array.delete_if {|element| !element}
 end
 
 def reverse_every_element_in_array array
@@ -52,43 +49,49 @@ def make_numbers_negative number
 end
 
 def separate_array_into_even_and_odd_numbers array
-	even = []
-	odd = []
-	result = [even, odd]
-	array.each { |number| number.odd? ? odd << number : even << number}
-	result
+	[array.select(&:even?),array.select(&:odd?)]
 end
 
 def number_of_elements_that_are_palindromes array
-	result = 0
-	array.each do |word|
-		check_palindrome(word) ? result +=1 : nil # When refactoring decided to create a separate check_palindrome method
+	array.inject(0) do |memo, word|
+		word == word.reverse ? memo +=1 : memo += 0 # When refactoring decided to create a separate check_palindrome method
 	end
-	result
 end
 
-def check_palindrome string
-	length = string.length
-	matching_letters = 0
-		for i in 1..length
-			string.inspect[i] == string.inspect[-(i+1)] ? matching_letters +=1 : nil
-		end
-	matching_letters == length ? true : false
-end
 
 def shortest_word_in_array array
-	array.sort {|a, b| a.length <=> b.length  }.first
+	array.sort {|a, b| a.length <=> b.length}.first
 end
 
 def longest_word_in_array array
-	i = 0
-	longest_word = ""
-	array.each do |word| 
-		if word.length > i 
-			i=word.length
-			longest_word = word
-		end
-	end
-	return longest_word
+	array.sort {|a, b| a.length <=> b.length}.last
 end
 
+def total_of_array array
+	array.inject(:+)
+end
+
+def double_array array
+ 	array + array
+end
+
+def turn_symbol_into_string symbol
+	symbol.to_s
+end
+
+def average_of_array array
+	sum = array.inject(:+)
+	average = sum / array.length
+end
+
+def get_elements_until_greater_than_five array
+	array.take_while { |n| n <= 5 } # I looked at the answer for this one
+end
+
+def convert_array_to_a_hash array
+	hash = {}
+	hash array.map do |a, b|
+		hash[a]=b
+	end
+	hash
+end
