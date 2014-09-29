@@ -14,7 +14,7 @@ def select_elements_starting_with_vowel array
 end
 
 def remove_nils_from_array array
-	array.delete_if {|element| element == nil}
+	array.compact!
 end
 
 def remove_nils_and_false_from_array array
@@ -58,3 +58,37 @@ def separate_array_into_even_and_odd_numbers array
 	array.each { |number| number.odd? ? odd << number : even << number}
 	result
 end
+
+def number_of_elements_that_are_palindromes array
+	result = 0
+	array.each do |word|
+		check_palindrome(word) ? result +=1 : nil # When refactoring decided to create a separate check_palindrome method
+	end
+	result
+end
+
+def check_palindrome string
+	length = string.length
+	matching_letters = 0
+		for i in 1..length
+			string.inspect[i] == string.inspect[-(i+1)] ? matching_letters +=1 : nil
+		end
+	matching_letters == length ? true : false
+end
+
+def shortest_word_in_array array
+	array.sort {|a, b| a.length <=> b.length  }.first
+end
+
+def longest_word_in_array array
+	i = 0
+	longest_word = ""
+	array.each do |word| 
+		if word.length > i 
+			i=word.length
+			longest_word = word
+		end
+	end
+	return longest_word
+end
+
