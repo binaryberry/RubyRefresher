@@ -1,4 +1,12 @@
-## Friday test!
+Ruby Refresher
+=================
+
+## What is it?
+
+A suite of Ruby tests we were challenged to make pass! It was a fun weekend challenge at Week 8 of Makers Academy.
+
+
+## The brief
 
 Here we're going to revisit the basics of Ruby. There are 41 questions - you don't have to do every single one (although if you can, that's great). You should be able to do at least 50% of them. They vary in level from quite easy to fairly hard. Work through them and check if they're correct by running the specs.
 
