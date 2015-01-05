@@ -89,9 +89,5 @@ def get_elements_until_greater_than_five array
 end
 
 def convert_array_to_a_hash array
-	hash = {}
-	hash array.map do |a, b|
-		hash[a]=b
-	end
-	hash
+	Hash[*array]
 end
