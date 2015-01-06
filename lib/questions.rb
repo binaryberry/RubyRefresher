@@ -91,3 +91,13 @@ end
 def convert_array_to_a_hash array
 	Hash[*array]
 end
+
+def get_all_letters_in_array_of_words array
+    result = []
+    array.each do |word|
+    	thing = word.chars
+    	result << thing
+    	result.flatten!.sort!
+    end
+    result
+end
