@@ -95,9 +95,7 @@ end
 def get_all_letters_in_array_of_words array
     result = []
     array.each do |word|
-    	thing = word.chars
-    	result << thing
-    	result.flatten!.sort!
+    	result << word.chars
     end
-    result
+    result.flatten!.sort!
 end
