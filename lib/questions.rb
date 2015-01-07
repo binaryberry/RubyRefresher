@@ -107,3 +107,9 @@ def add_together_keys_and_values hash
 	hash.each { |key, value| sum += key + value}
 	sum
 end
+
+def remove_capital_letters_from_string string
+	letters = string.chars
+	letters.delete_if {|letter| letter.capitalize == letter && letter != " "}
+	letters.join
+end
