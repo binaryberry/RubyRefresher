@@ -104,8 +104,6 @@ end
 
 def add_together_keys_and_values hash
 	sum = 0
-	hash.each do |key, value|
-	sum += key + value
-	end
+	hash.each { |key, value| sum += key + value}
 	sum
 end
