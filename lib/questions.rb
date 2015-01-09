@@ -113,3 +113,7 @@ def remove_capital_letters_from_string string
 	letters.delete_if {|letter| letter.capitalize == letter && letter != " "}
 	letters.join
 end
+
+def round_up_number number
+	number.round + 1
+end
