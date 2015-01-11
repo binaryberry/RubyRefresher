@@ -121,3 +121,9 @@ end
 def round_down_number number
 	number.round - 1
 end
+
+def format_date_nicely date
+	s = date.to_s
+	s[8..9] + '/' + s[5..6] + '/' + s[0..3] 
+	
+end
